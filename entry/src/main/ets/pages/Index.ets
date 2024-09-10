@@ -9,7 +9,7 @@ struct Index {
 
   // 创建TabItem组件
   @Builder
-  TabItem(item: TabListType){
+  tabItem(item : TabListType){
     Column(){
       Image(item.name === tabList[this.currentIndex].name ? item.selectIcon : item.icon)
         .width(20)
@@ -21,6 +21,7 @@ struct Index {
     }
   }
 
+
   build() {
     // 创建Tabs
     Tabs({index : $$this.currentIndex}){
@@ -31,7 +32,7 @@ struct Index {
           }else{
             Text(tabList[this.currentIndex].title)
           }
-        }.tabBar(this.TabItem(item))
+        }.tabBar(this.tabItem(item))
       }, (item : TabListType) => item.name.toString())
 
     }.barPosition(BarPosition.End)
